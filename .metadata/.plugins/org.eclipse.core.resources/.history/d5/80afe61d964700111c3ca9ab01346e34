@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>버거</title>
+</head>
+<body>
+
+	<form method = "get" action="http://localhost:8088/first/second.do">
+		<ul>
+			<li>
+				별명 : <input type = "text" name = "name"/>
+			</li>
+			<li>
+				메뉴 옵션 수량 가격 세트
+			</li>
+			<li>
+				비건 : 
+			</li>
+			<li>
+				글루텐프리 : 
+			</li>
+			<li>
+				매장 내 식사 : <input type="radio" name = "order" value= "매장"/>
+				포장 : <input type="radio" name = "order" value="포장"/> 
+			</li>
+			<li>
+				일회용기 사용 유무 : <br>
+				O : <input type="radio" name = "singleUse" value="O"/>
+				X : <input type="radio" name = "singleUse" value="X"/>
+			</li>
+			<li>
+				번호표
+			</li>
+			<li>
+			
+			</li>
+			<li>
+			
+			</li>
+			<li>
+			
+			</li>
+			
+		
+		</ul>
+	
+	</form>
+
+
+
+</body>
+</html>
