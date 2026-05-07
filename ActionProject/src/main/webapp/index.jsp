@@ -37,6 +37,8 @@
 	<a href="http://localhost:8088/action/el.do">서블릿으로 요청~</a>
 	
 	<!--action 얘는 뭐더라, el.do 서블릿 매핑값 -->
+	
+	<a href="/action/jstl.do">jstl ㄱㄱ</a>
 
 </body>
 </html>
