@@ -1,10 +1,13 @@
 package com.kh.web.member.model.service;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.kh.web.common.Template;
 import com.kh.web.member.model.dao.MemberDao;
 import com.kh.web.member.model.dto.MemberDto;
+import com.kh.web.member.model.dto.UpdatePwdDto;
 
 public class MemberService {
 	
@@ -43,6 +46,59 @@ public class MemberService {
 		//뭔가 
 		// 좋은 방식 전통적인 방식 계속 현장에서 쓰인다 != 좋은 방식이다
 	}
+	
+	public MemberDto updateMember(Map<String, String> map) {
+		MemberDto userInfo = null;
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		int result = md.updateMember(sqlSession, map);
+		
+		if(result > 0) {
+			
+			sqlSession.commit();
+			userInfo  = md.selectMember(sqlSession, Long.parseLong(map.get("userNo")));
+			// 이걸 commit이전에 쓰면 update 이전이라 안되지 않을까?
+			// 근데 commit중에 예외가 일어날 수 있다? 뭐징
+		}
+		
+		sqlSession.close();
+		
+		return userInfo;
+	}
+		
+
+	public int updatePassword(UpdatePwdDto upd) {
+		
+		SqlSession sqlSession = Template.getSqlSession();
+		
+		int result =md.updatePassword(sqlSession, upd);
+		
+		if(result >0) {
+			sqlSession.commit();
+		}
+		
+		sqlSession.close();
+		return result;
+		
+	}
+	
+	public int deleteMember(MemberDto member) {
+		
+		SqlSession session = Template.getSqlSession();
+		
+		int result =  md.deleteMember(session, member);
+		
+		if(result > 0) {
+			session.commit();
+		}
+		
+		session.close();
+		
+		return result;
+	}
+		
+		
+
 
 	
 }

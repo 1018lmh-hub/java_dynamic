@@ -57,6 +57,69 @@
  	
  	</select>
  
+ 	<update id="updateMember"
+ 			parameterType="Map">
+ 		UPDATE 
+ 		       WEB_MEMBER
+ 		   SET
+ 		       USER_NAME = #{ userName}
+ 		     , EMAIL = #{ email}
+ 		     , MODIFY_DATE = SYSDATE
+ 		 WHERE
+ 		       USER_NO = #{ userNo }
+ 		   AND
+ 		       STATUS = 'N'
+ 			
+ 	</update>
+ 	
+ 	<select id="selectMember"
+ 			resultType = "member"
+ 			parameterType= "long">
+ 		SELECT
+ 		       USER_NO
+ 		     , USER_ID
+ 		     , USER_NAME
+ 		     , EMAIL
+ 		     , ENROLL_DATE
+ 		     , MODIFY_DATE
+ 		     , STATUS
+ 		  FROM
+ 		       WEB_MEMBER
+ 		 WHERE
+ 		       USER_NO = #{userNo}
+ 		   AND
+ 		       STATUS='N'
+ 	
+ 	</select>
+ 	
+ 	<update id="changePassword"
+ 			parameterType="com.kh.web.member.model.dto.UpdatePwdDto">
+ 		UPDATE
+ 		       WEB_MEMBER
+ 		   SET
+ 		       USER_PWD = #{ changePwd }
+ 		 WHERE
+ 		       USER_PWD = #{ userPwd }
+ 		   AND
+ 		       USER_NO = #{ userNo}		
+ 		   AND
+ 		       STATUS = 'N'
+ 	</update>
+ 	
+ 	<update id="deleteMember" parameterType="member">
+ 		UPDATE
+ 		       WEB_MEMBER
+ 		   SET
+ 		       STATUS = 'Y'
+ 		     , MODIFY_DATE = SYSDATE
+ 	     WHERE
+ 	           USER_NO = #{ userNo }
+ 	       AND 
+ 	           USER_PWD =#{ userPwd }
+ 	       AND
+ 	           STATUS ='N'
+ 	
+ 	</update>
  
  
  
