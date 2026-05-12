@@ -83,6 +83,9 @@
  	         , #{fileLevel}  
  	           )       
  	</insert>
+ 		<!-- (SELECT MAX(BOARD_NO) FROM WEB_BOARD)서브쿼리로도 넣을 수 있는데
+ 	      selectKey가 구문 끝나고 실행해서 필드에 넣어줘서 이렇게 가능 
+ 	      choose있는데는 주석 넣지 말기-->
       
  	<update id="increaseCount">
  		UPDATE 
