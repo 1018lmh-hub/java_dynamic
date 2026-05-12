@@ -27,9 +27,10 @@ public class LogoutController extends HttpServlet {
 		// 이거저거 다 해보고 경험으로 최적화도 함 해야겠다 다 초기화돼서;
 		
 		HttpSession session = request.getSession();
-//		session.removeAttribute("userInfo");
-		session.invalidate(); //만료시킨다, 무효화 한다.
+		session.removeAttribute("userInfo");
 		
+//		session.invalidate(); //만료시킨다, 무효화 한다.
+		session.setAttribute("alertMsg", "추카포가");
 		response.sendRedirect("/kh");
 	}
 

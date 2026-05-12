@@ -40,7 +40,7 @@ public class MyRenamePolicy implements FileRenamePolicy {
 		String changeName = "KH_" + currentTime + "_" + randomNum + ext;
 		
 		
-		return null;
+		return new File(origin.getParent(), changeName);
 	}
 
 }

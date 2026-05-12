@@ -49,7 +49,7 @@ tr:hover{
 	        		</c:when>
 	        		
 	        		<c:otherwise>   		
-	        			<c:forEach  var="board" items="${boards }">
+	        			<c:forEach  var="board" items="${ boards }">
 		                    <tr style="color: #52b1ff;"
 		                        class="board"
 		                        id="1">
@@ -60,7 +60,9 @@ tr:hover{
 		                        ${ board.userName }
 		                        </td>
 		                        <td style="color: #52d6ffcc;">
+		                        <a href="http://localhost:8088/kh/detail.bo?boardNo=${ board.boardNo }">
 		                        ${ board.boardTitle }&nbsp;
+		                        </a>
 		                        </td>
 		                        <td>
 		                        ${ board.createDate }

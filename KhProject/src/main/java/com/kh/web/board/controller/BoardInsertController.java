@@ -1,5 +1,6 @@
 package com.kh.web.board.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
@@ -12,7 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.kh.web.board.model.dto.BoardDto;
+import com.kh.web.board.model.service.BoardService;
+import com.kh.web.common.MyRenamePolicy;
+import com.kh.web.common.model.dto.AttachmentDto;
 import com.kh.web.member.model.dto.MemberDto;
+import com.oreilly.servlet.MultipartRequest;
 
 
 @WebServlet("/insert.bo")
@@ -30,7 +36,7 @@ public class BoardInsertController extends HttpServlet {
 		
 		//값뽑기 =>  제목,  내용 => BoardDto로 가공
 		//     => 파일		=> 이거저거         => DTO로 가공
-		String boardTitle = request.getParameter("boardTitle");
+//		String boardTitle = request.getParameter("boardTitle");
 //		System.out.println(boardTitle);
 		
 		//form태그로 요청을 했을 때 multipart/form-data형식으로 요청한다면
@@ -89,6 +95,68 @@ public class BoardInsertController extends HttpServlet {
 			
 			// a.jpg 	a2.jpg 		a3.jpg
 			// kakaoTalk_ 20260511_173640 123 		.jpg
+			
+			/*
+			 * new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyRenamePolicy());
+			 * 얘 설명 쓰기
+			 */
+			MultipartRequest multiRequest = 
+					new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyRenamePolicy());
+			// 파일 업로드 작업
+			
+			// 꼭 해야하는 작업 = > Board테이블에 INSERT하기 위해서 값뽑고 가공
+			String boardTitle = multiRequest.getParameter("boardTitle");
+//			System.out.println(boardTitle);
+			String boardContent = multiRequest.getParameter("boardContent");
+			Long userNo = member.getUserNo();
+			
+			BoardDto board = new BoardDto();
+			board.setBoardTitle(boardTitle);
+			board.setBoardContent(boardContent);
+			board.setUserNo(userNo);
+			
+			// 첨부파일의 정보 => 선택적
+			AttachmentDto at = null;
+			// 첨부파일이 있는 지 없는 지
+//			System.out.println(multiRequest.getOriginalFileName("upfile"));
+			
+			//☆★ 개인적으로 좀 생각해볼 그런			
+			//  파일은 디스크에 저장 . 이 경로를 DB에 저장
+			// 서버 컴퓨터 와 DB 컴퓨터 어떻게 다른거지 , 파일 업로드랑 DB CRUD 별개
+			//☆★
+			
+			if(multiRequest.getOriginalFileName("upfile") != null) {
+				//첨부 파일이 존재한다.
+				at = new AttachmentDto();
+				//originName
+				at.setOriginName(multiRequest.getOriginalFileName("upfile"));
+				//changeName
+				at.setChangeName(multiRequest.getFilesystemName("upfile"));
+				//filePath
+				at.setFilePath("resources/board_upfiles");
+				//boardType
+				at.setBoardType("C");
+				//fileLevel
+			    at.setFileLevel(2);
+			}
+			int result = new BoardService().insertBoard(board, at);
+			
+			//응답화면 지정
+			if(result > 0) {
+				
+				
+//				request.getRequestDispatcher("/WEB-INF/views/board/boards.jsp").forward(request, response);
+				response.sendRedirect("/kh/boards.do?page=1");
+			} else {
+				//영속성 작업 => INSERT(BOARD/ATTACHMENT)
+				//실패했을 경우 파일이 존재한다면 파일을 삭제해야함
+				if(at != null) {
+					new File(savePath + "/" + at.getChangeName()).delete();
+				}
+				session.setAttribute("message", "게시글 작성 실패");
+				response.sendRedirect("/kh/fail.do");
+				
+			}
 			
 		}
 		

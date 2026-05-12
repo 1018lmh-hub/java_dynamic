@@ -59,6 +59,7 @@ public class LoginController extends HttpServlet {
 //			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			
 			HttpSession session = request.getSession();
+			session.setAttribute("alertMsg", "추카포가");
 			session.setAttribute("userInfo", loginMember);
 			response.sendRedirect("/kh");
 			// 쿠기 session임 만료됨 userInfo라고만 써있으면 회원간 구분이 안돼서 이걸로 구분함
