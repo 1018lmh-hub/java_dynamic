@@ -49,6 +49,22 @@
  	
  	</select>
  	
+ 	<update id="deleteMember" parameterType="member">
+ 	
+ 		UPDATE
+ 		       WEB_MEMBER
+ 		   SET
+ 		       STATUS = 'Y'
+ 		     , MODIF_DATE = SYSDATE
+ 	     WHERE 
+ 	           USER_NO = #{ userNo }
+ 	       AND
+ 	           USER_PWD = #{ userPwd }
+ 	       AND 
+ 	           STATUS ='N'
+ 	
+ 	</update>
+ 	
  
  
  

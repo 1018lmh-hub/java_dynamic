@@ -13,4 +13,8 @@ public class MemberDao {
 	public MemberDto login(SqlSession sqlSession, MemberDto member) {
 		return sqlSession.selectOne("memberMapper.login", member);
 	}
+	
+	public int deleteMember(SqlSession sqlSession, MemberDto member) {
+		return sqlSession.update("memberMapper.deleteMember", member);
+	}
 }

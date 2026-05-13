@@ -38,6 +38,20 @@ public class MemberService {
 		
 	}
 	
+	public int deleteMember(MemberDto member) {
+		SqlSession session = Template.getSqlSession();
+		
+		int result = md.deleteMember(session, member);
+		
+		if(result > 0) {
+			session.commit();
+		}
+		
+		session.close();
+		
+		return result;
+	}
+	
 
 	
 

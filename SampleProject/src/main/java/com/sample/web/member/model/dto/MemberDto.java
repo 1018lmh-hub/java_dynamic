@@ -18,6 +18,17 @@ public class MemberDto {
 	}
 
 
+	
+	
+	public MemberDto(Long userNo, String userPwd) {
+		super();
+		this.userNo = userNo;
+		this.userPwd = userPwd;
+	}
+
+
+
+
 	public MemberDto(String userId, String userPwd, String userName, String email) {
 		super();
 		this.userId = userId;

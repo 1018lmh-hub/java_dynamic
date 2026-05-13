@@ -693,3 +693,11 @@ org.eclipse.jdt.core.JavaModelException: src/main/webapp/WEB-INF/classes/com/kh/
 2026-05-11 09:09:57,174 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2026-05-12 09:18:17,439 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2026-05-13 10:42:53,161 [Worker-43: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2026-05-13 11:28:00,685 [main] INFO  org.eclipse.jetty.server.Server - jetty-12.0.9; built: 2024-05-03T13:03:17.262Z; git: efe8023327e67287f9bfd006700e6a71d45b5dd6; jvm 21.0.3+9-LTS
+2026-05-13 11:28:00,740 [main] INFO  o.e.j.server.handler.ContextHandler - Started oeje8n.ContextHandler$CoreContextHandler@4a817231{/wse,/wse,b=null,a=AVAILABLE,h=oeje8n.ContextHandler$CoreContextHandler$CoreToNestedHandler@478bf939{STARTED}}
+2026-05-13 11:28:00,740 [main] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+2026-05-13 11:28:00,758 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@6afda775{HTTP/1.1, (http/1.1)}{0.0.0.0:51029}
+2026-05-13 11:28:00,780 [main] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@5f7f56d{STARTING}[12.0.9,sto=0] @8135488ms
+2026-05-13 11:28:01,084 [qtp1656799368-943] INFO  o.e.j.e.nested.ContextHandler._wse - Warning: No org.apache.tomcat.JarScanner set in ServletContext. Falling back to default JarScanner implementation.
+2026-05-13 17:47:11,974 [Framework stop - Equinox Container: 0b053e1d-8a87-4c0b-ae78-4fdbbadc75b1] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@5f7f56d{STOPPING}[12.0.9,sto=0]
+2026-05-13 17:47:11,978 [Framework stop - Equinox Container: 0b053e1d-8a87-4c0b-ae78-4fdbbadc75b1] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@6afda775{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
