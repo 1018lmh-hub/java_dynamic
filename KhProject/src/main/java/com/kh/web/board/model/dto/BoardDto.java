@@ -2,8 +2,6 @@ package com.kh.web.board.model.dto;
 
 import java.sql.Date;
 
-import oracle.sql.NUMBER;
-
 public class BoardDto {
 	private Long boardNo;
 	private Long userNo;
@@ -14,8 +12,22 @@ public class BoardDto {
 	private int count;
 	private String status;
 	private String userName;
+	private String src;
 	
 	
+	
+	public String getSrc() {
+		return src;
+	}
+
+
+
+	public void setSrc(String src) {
+		this.src = src;
+	}
+
+
+
 	public BoardDto() {
 		super();
 	}

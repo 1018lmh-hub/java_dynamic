@@ -701,3 +701,4 @@ org.eclipse.jdt.core.JavaModelException: src/main/webapp/WEB-INF/classes/com/kh/
 2026-05-13 11:28:01,084 [qtp1656799368-943] INFO  o.e.j.e.nested.ContextHandler._wse - Warning: No org.apache.tomcat.JarScanner set in ServletContext. Falling back to default JarScanner implementation.
 2026-05-13 17:47:11,974 [Framework stop - Equinox Container: 0b053e1d-8a87-4c0b-ae78-4fdbbadc75b1] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@5f7f56d{STOPPING}[12.0.9,sto=0]
 2026-05-13 17:47:11,978 [Framework stop - Equinox Container: 0b053e1d-8a87-4c0b-ae78-4fdbbadc75b1] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@6afda775{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+2026-05-14 09:15:02,932 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

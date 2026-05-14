@@ -95,7 +95,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="http://localhost:8088/kh/">
       	<img class="img-fluid" src="https://www.kh-academy.co.kr/resources/images/main/logo.svg" alt="로고없음" style="width:130px; height:50px;" />
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -115,7 +115,7 @@
             <a class="nav-link js-scroll-trigger" href="http://localhost:8088/kh/boards.do?page=1">게시판</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="">사진게시판</a>
+            <a class="nav-link js-scroll-trigger" href="http://localhost:8088/kh/boards.im">사진게시판</a>
           </li>
           
           <c:choose>

@@ -45,4 +45,20 @@ public class BoardDao {
 	public int deleteAttachment(SqlSession sqlSession, Long boardNo) {
 		return sqlSession.delete("boardMapper.deleteAttachment", boardNo);
 	}
+	
+	public int updateBoard(SqlSession sqlSession, BoardDto board) {
+		return sqlSession.update("boardMapper.updateBoard", board);
+	}
+	
+	public int updateAttachment(SqlSession sqlSession, AttachmentDto at) {
+		return sqlSession.update("boardMapper.updateAttachment", at);
+	}
+	
+	public int insertImage(SqlSession sqlSession, BoardDto board) {
+		return sqlSession.insert("boardMapper.insertImage", board);
+	}
+	
+	public List<BoardDto> selectImageList(SqlSession sqlSession){
+		return sqlSession.selectList("boardMapper.selectImageList");
+	}
 }
